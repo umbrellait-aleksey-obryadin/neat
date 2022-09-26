@@ -1,0 +1,27 @@
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.list {
+  padding: 0;
+  margin: 0 0 30px 18px;
+  font-size: 18px;
+
+  li::marker {
+    text-align: end !important;
+  }
+
+  a {
+    max-width: 320px;
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+    color: #6495ed;
+  }
+}
+
+.tags {
+  color: #a0a6ab;
+}

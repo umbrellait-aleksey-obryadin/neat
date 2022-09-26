@@ -1,0 +1,4 @@
+extends: './node_modules/@neat/frontend/.eslintrc.yml'
+
+parserOptions:
+  project: './tsconfig.json'

@@ -1,0 +1,49 @@
+@import '~/styles/variables.scss';
+
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 27px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 16px;
+  line-height: 21px;
+  outline: none;
+
+  &.loading {
+    padding: 10px 27px;
+
+    .text {
+      opacity: 0;
+    }
+
+    .icon {
+      opacity: 0;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.6;
+  }
+
+  &:active:not([disabled]) {
+    filter: brightness(90%);
+  }
+
+  &.filled {
+    &.primary {
+      background: $color-primary;
+      color: $white;
+    }
+
+    .spinner {
+      color: $white;
+    }
+  }
+}
+
+.spinner {
+  position: absolute;
+}

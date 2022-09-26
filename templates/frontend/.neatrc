@@ -1,0 +1,15 @@
+{
+  "entries": {
+    "client": {
+      "path": "./src/client.tsx",
+      "port": "8000",
+      "favicon": "./public/client.ico"
+    },
+    "admin": {
+      "path": "./src/admin.tsx",
+      "port": "9000",
+      "favicon": "./public/admin.ico"
+    }
+  },
+  "name": "template"
+}

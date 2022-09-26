@@ -1,0 +1,29 @@
+.root {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  font-family: 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+
+  & > * {
+    margin-right: 10px;
+  }
+
+  .link {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.tags {
+  font-size: 18px;
+  color: #a0a6ab;
+  margin-bottom: 50px;
+}

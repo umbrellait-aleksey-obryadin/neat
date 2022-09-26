@@ -1,0 +1,9 @@
+{
+  "name": "eslint-plugin-require-todo-links",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.16.0"
+  }
+}

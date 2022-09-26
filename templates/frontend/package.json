@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "author": "Neattech.io <hello@neattech.io>",
+  "scripts": {
+    "start": "neat frontend start",
+    "print:lang": "neat frontend print:lang",
+    "build": "neat frontend build",
+    "lint": "neat frontend lint",
+    "lint:fix": "yarn lint --fix",
+    "postinstall": "husky install && ln -f node_modules/@neat/frontend/.prettierrc.json .prettierrc.json"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-intl": "^3.0.0",
+    "husky": "^5.0.0-alpha.5"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.1",
+    "@neat/frontend": "ssh://git@github.com:neattech-io/neat#master",
+    "@sentry/browser": "^5.27.6",
+    "@sentry/react": "^5.24.2",
+    "@sentry/tracing": "^5.24.2",
+    "@types/classnames": "^2.2.11",
+    "@types/lodash": "^4.14.167",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/yup": "^0.29.9",
+    "classnames": "^2.2.6",
+    "formik": "^2.2.5",
+    "highlight.js": "^10.5.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-intl": "^5.8.3",
+    "react-router-dom": "^5.2.0",
+    "yup": "^0.31.1"
+  }
+}

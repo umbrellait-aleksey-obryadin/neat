@@ -1,0 +1,18 @@
+{
+  "extends": "@neat/frontend/tsconfig.json",
+
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist",
+
+    "module": "commonjs",
+    "esModuleInterop": true,
+
+    "paths": {
+      "~/*": ["./*"]
+    }
+  },
+
+  "include": ["src", "*.config.js"],
+  "exclude": ["dist", "node_modules"]
+}

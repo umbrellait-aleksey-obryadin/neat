@@ -1,0 +1,26 @@
+extends: './node_modules/@neat/frontend/.eslintrc.yml'
+
+parserOptions:
+  project: './tsconfig.json'
+
+rules:
+  # turning off some rules below because it is too late to fix them :(
+  react/no-children-prop: 0
+  no-magic-numbers: 0
+  react/display-name: 0
+  '@typescript-eslint/no-use-before-define': 0
+
+  no-restricted-imports:
+    [
+      'error',
+      {
+        paths:
+          [
+          {
+            name: '@react-navigation/native',
+            importNames: ['useNavigation', 'useRoute'],
+            message: 'Please import useNavigation / useRoute from ~/hooks instead.',
+          },
+          ],
+      },
+    ]

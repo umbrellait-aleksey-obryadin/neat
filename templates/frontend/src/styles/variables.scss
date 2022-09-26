@@ -1,0 +1,10 @@
+// Colors
+$color-primary: #6495ed;
+$color-alert: #de1d1d;
+$white: #fff;
+
+:export {
+  colorPrimary: $color-primary;
+  colorAlert: $color-alert;
+  white: $white;
+}

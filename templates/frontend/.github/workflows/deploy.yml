@@ -1,0 +1,76 @@
+name: Frontend Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  REPOSITORY_NAME: ${{ github.event.repository.name }}
+  DEPLOYMENT_URL: 'http://${{ github.event.repository.name }}.static.neattech.io'
+  GITHUB_TOKEN: '8746f453d4eb461410276db0f14ae693a88cb74b'
+  DIRECTORY_NAME: $(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+          check-latest: true
+
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@releases/v1
+        id: deployment
+        with:
+          token: ${{ env.GITHUB_TOKEN }}
+          target_url: ${{ env.DEPLOYMENT_URL }}
+          environment: staging
+
+      - name: Get ssh private key from neat repo
+        run: |
+          curl \
+          -H 'Authorization: token ${{ env.GITHUB_TOKEN }}' \
+          -H 'Accept: application/vnd.github.v3.raw' \
+          -L https://api.github.com/repos/NeatTech-io/Neat/contents/ssh_keys/neat >> ./neat
+          chmod 600 ./neat
+      - name: Clone, build and run via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: '104.248.31.56'
+          username: 'root'
+          key_path: ./neat
+          script: |
+            cd /var/www/static/
+            git clone git@github.com:NeatTech-io/${{ env.REPOSITORY_NAME }}.git ${{ env.DIRECTORY_NAME }} || true
+            cd ${{ env.DIRECTORY_NAME }}/
+
+            git fetch origin
+            git reset origin/master --hard
+
+            yarn
+            rm -rf dist || true
+            yarn build
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ env.GITHUB_TOKEN }}
+          target_url: ${{ env.DEPLOYMENT_URL }}
+          state: 'success'
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          environment_url: ${{ env.DEPLOYMENT_URL }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ env.GITHUB_TOKEN }}
+          target_url: ${{ env.DEPLOYMENT_URL }}
+          state: 'failure'
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          environment_url: ${{ env.DEPLOYMENT_URL }}

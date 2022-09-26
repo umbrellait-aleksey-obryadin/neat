@@ -1,0 +1,13 @@
+@import '~/styles/variables.scss';
+
+.root {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.errorText {
+  position: absolute;
+  margin-top: 3px;
+  font-size: 14px;
+  color: $color-alert;
+}

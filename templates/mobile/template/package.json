@@ -1,0 +1,40 @@
+{
+  "name": "NeatMobile",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Neattech.io <hello@neattech.io>",
+  "scripts": {
+    "android": "ENVFILE=.env react-native run-android",
+    "ios": "ENVFILE=.env react-native run-ios ",
+    "lint": "neat frontend lint",
+    "start": "react-native start",
+    "test": "jest",
+    "ts:check": "tsc --watch",
+    "ts:check:ci": "tsc"
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.3",
+    "react-native-bootsplash": "^2.2.7",
+    "react-native-svg": "^12.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/runtime": "^7.9.6",
+    "@neat/frontend": "git+ssh://git@github.com:neattech-io/neat#master",
+    "@types/react": "^16.9.34",
+    "@types/react-native": "^0.63.2",
+    "babel-jest": "^26.0.1",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.2",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-native-animatable": "^1.3.3",
+    "react-test-renderer": "^16.13.1",
+    "subscriptions-transport-ws": "^0.9.17",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

@@ -1,0 +1,14 @@
+scalar ID
+scalar DateTime
+
+type Query {
+  noop: Boolean
+}
+
+type Mutation {
+  noop: Boolean
+}
+
+type Subscription {
+  noop: Boolean
+}

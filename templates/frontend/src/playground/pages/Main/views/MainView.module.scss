@@ -1,0 +1,32 @@
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  font-family: 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+
+  .tag {
+    font-size: 16px;
+    padding: 13px 25px;
+    background-color: #fff;
+    border-radius: 25px;
+    border: 2px solid #d4dbe0;
+    margin-right: 20px;
+    outline: none;
+  }
+
+  .active {
+    border-color: #6495ed;
+  }
+}
